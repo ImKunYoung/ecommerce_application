@@ -54,3 +54,26 @@ git branch --set-upstream-to=origin/msa-discoveryservice msa-discoveryservice
 
 <br/>
 <br/>
+
+
+## ✔️ msa-gatewayservice
+
+<br/>
+
+#### Git Branch 생성
+
+```git
+git checkout -b msa-gatewayservice
+```
+
+<br/>
+
+
+#### Local Branch를 Remote Branch와 연동
+
+```git
+git branch --set-upstream-to=origin/msa-gatewayservice msa-gatewayservice
+```
+
+<br/>
+<br/>
