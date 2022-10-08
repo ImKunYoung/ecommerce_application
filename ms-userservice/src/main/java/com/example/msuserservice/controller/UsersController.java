@@ -1,6 +1,7 @@
 package com.example.msuserservice.controller;
 
 import com.example.msuserservice.dto.RequestUser;
+import com.example.msuserservice.dto.ResponseUser;
 import com.example.msuserservice.dto.UserDto;
 import com.example.msuserservice.service.UsersService;
 import org.modelmapper.ModelMapper;
@@ -31,14 +32,18 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity createUser(@RequestBody RequestUser user) {
+    public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
+
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         UserDto userDto = modelMapper.map(user, UserDto.class);
         usersService.createUser(userDto);
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        ResponseUser responseUser = modelMapper.map(userDto, ResponseUser.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
+
     }
 
 }
