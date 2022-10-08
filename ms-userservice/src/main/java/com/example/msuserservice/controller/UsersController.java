@@ -1,9 +1,8 @@
 package com.example.msuserservice.controller;
 
+import com.example.msuserservice.dto.RequestUser;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
@@ -19,6 +18,11 @@ public class UsersController {
     @GetMapping("welcome")
     public String welcome() {
         return env.getProperty("greeting.message");
+    }
+
+    @PostMapping("/users")
+    public String createUser(@RequestBody RequestUser user) {
+        return "Create user method is called";
     }
 
 }
