@@ -1,4 +1,8 @@
 package com.example.msuserservice.service;
 
-public class UsersService implements UsersServiceImpl{
+import com.example.msuserservice.dto.UserDto;
+
+public interface UsersService{
+    UserDto createUser(UserDto userDto);
+
 }
