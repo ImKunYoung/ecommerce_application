@@ -26,7 +26,7 @@ public class UsersController {
         return "It's Working in User Service";
     }
 
-    @GetMapping("welcome")
+    @GetMapping("/welcome")
     public String welcome() {
         return env.getProperty("greeting.message");
     }
