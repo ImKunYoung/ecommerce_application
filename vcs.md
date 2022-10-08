@@ -18,7 +18,7 @@ git branch --set-upstream-to=origin/main main
 #### Git Branch 생성
 
 ```git
-git checkout -b root
+git checkout -b rootDir
 ```
 
 <br/>
@@ -27,7 +27,7 @@ git checkout -b root
 #### Local Branch를 Remote Branch와 연동
 
 ```git
-git branch --set-upstream-to=origin/root root
+git branch --set-upstream-to=origin/rootDir rootDir
 ```
 
 <br/>
@@ -49,7 +49,7 @@ git checkout -b msa-discoveryservice
 #### Local Branch를 Remote Branch와 연동
 
 ```git
-git branch --set-upstream-to origin/msa-discoveryservice
+git branch --set-upstream-to=origin/msa-discoveryservice msa-discoveryservice
 ```
 
 <br/>
