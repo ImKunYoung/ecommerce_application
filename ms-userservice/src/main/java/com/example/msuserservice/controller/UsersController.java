@@ -4,9 +4,9 @@ import com.example.msuserservice.dto.RequestUser;
 import com.example.msuserservice.dto.ResponseUser;
 import com.example.msuserservice.dto.UserDto;
 import com.example.msuserservice.service.UsersService;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
+@RequiredArgsConstructor
 public class UsersController {
 
-    private Environment env;
+    private final Environment env;
 
-    @Autowired
-    private UsersService usersService;
+    private final UsersService usersService;
 
     @GetMapping("/health_check")
     public String status() {
