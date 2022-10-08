@@ -43,7 +43,6 @@ public class UsersController {
         ResponseUser responseUser = modelMapper.map(userDto, ResponseUser.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
-        /*TODO: -Security: 930-r02 38*/
 
     }
 
