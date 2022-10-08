@@ -18,7 +18,8 @@ public class UsersServiceImpl implements UsersService {
 
     private final UserRepository userRepository;
 
-    private final BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
 
     @Override
@@ -29,7 +30,6 @@ public class UsersServiceImpl implements UsersService {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserEntity userEntity = modelMapper.map(userDto, UserEntity.class);
-        userEntity.setEncryptedPwd("encrypted_password");
         userRepository.save(userEntity);
 
         return null;
