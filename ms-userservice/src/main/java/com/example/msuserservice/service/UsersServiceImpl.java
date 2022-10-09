@@ -42,7 +42,6 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public UserDto getUserByUserId(String userId) {
 
-        /*TODO: -UserEntity userEntity = userRepository.findByUserId(userId);*/
         UserEntity userEntity = userRepository.findByUserId(userId);
 
         if(userEntity == null) throw new UsernameNotFoundException("User not found");
@@ -51,7 +50,6 @@ public class UsersServiceImpl implements UsersService {
 
         List<ResponseOrder> ordersList = new ArrayList<>();
 
-        /*TODO: -userDto.setOrders(ordersList)*/
         userDto.setOrdersList(ordersList);
 
         return userDto;
