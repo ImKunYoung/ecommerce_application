@@ -52,7 +52,7 @@ public class UsersServiceImpl implements UsersService {
         List<ResponseOrder> ordersList = new ArrayList<>();
 
         /*TODO: -userDto.setOrders(ordersList)*/
-        userDto.setOrders(ordersList);
+        userDto.setOrdersList(ordersList);
 
         return userDto;
     }

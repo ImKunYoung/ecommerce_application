@@ -17,7 +17,5 @@ public class UserDto {
     private String encryptedPwd;
 
     /*TODO: -setOrders*/
-    public void setOrders(List<ResponseOrder> ordersList) {
-    }
-//    List<ResponseOrder> ordersList;
+    private List<ResponseOrder> ordersList;
 }
