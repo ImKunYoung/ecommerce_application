@@ -23,15 +23,7 @@ public class UsersController {
 
     private final UsersService usersService;
 
-    @GetMapping("/health_check")
-    public String status(HttpServletRequest request) {
-        return String.format("It's Working in User Service on PORT %s", request.getServerPort());
-    }
 
-    @GetMapping("/welcome")
-    public String welcome() {
-        return env.getProperty("greeting.message");
-    }
 
     @PostMapping("/users")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
@@ -46,6 +38,16 @@ public class UsersController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
 
+    }
+
+    @GetMapping("/health_check")
+    public String status(HttpServletRequest request) {
+        return String.format("It's Working in User Service on PORT %s", request.getServerPort());
+    }
+
+    @GetMapping("/welcome")
+    public String welcome() {
+        return env.getProperty("greeting.message");
     }
 
 }
