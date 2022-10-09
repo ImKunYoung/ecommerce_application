@@ -39,6 +39,16 @@ public class UsersController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<ResponseUser> getUser(@PathVariable("userId") String userId) {
+
+        UserDto userDto = usersService.getUserByUserId(userId);
+
+        ResponseUser result = new ModelMapper().map(userDto, ResponseUser.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
     @PostMapping("/users")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
 

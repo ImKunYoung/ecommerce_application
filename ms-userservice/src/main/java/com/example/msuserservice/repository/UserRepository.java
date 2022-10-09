@@ -4,4 +4,6 @@ import com.example.msuserservice.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
+    /*TODO: -UserEntity findByUserId(String userId);*/
+    UserEntity findByUserId(String userId);
 }
