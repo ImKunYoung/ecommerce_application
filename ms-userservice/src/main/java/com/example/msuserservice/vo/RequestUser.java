@@ -1,4 +1,4 @@
-package com.example.msuserservice.dto;
+package com.example.msuserservice.vo;
 
 import lombok.Data;
 
