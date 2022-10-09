@@ -27,28 +27,9 @@ public class UsersController {
     private final UsersService usersService;
 
 
-    @GetMapping("/users")
-    public ResponseEntity<List<ResponseUser>> getUsers() {
-
-        Iterable<UserEntity> userList = usersService.getUserByAll();
-
-        List<ResponseUser> result = new ArrayList<>();
-
-        userList.forEach(v -> result.add(new ModelMapper().map(v, ResponseUser.class)));
-
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-
-    @GetMapping("/users/{userId}")
-    public ResponseEntity<ResponseUser> getUser(@PathVariable("userId") String userId) {
-
-        UserDto userDto = usersService.getUserByUserId(userId);
-
-        ResponseUser result = new ModelMapper().map(userDto, ResponseUser.class);
-
-        return ResponseEntity.status(HttpStatus.OK).body(result);
-    }
-
+    /*
+    @Description 사용자 정보 등록
+    */
     @PostMapping("/users")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
 
@@ -64,11 +45,49 @@ public class UsersController {
 
     }
 
+
+    /*
+    @Description 전체 사용자 조회
+    */
+    @GetMapping("/users")
+    public ResponseEntity<List<ResponseUser>> getUsers() {
+
+        Iterable<UserEntity> userList = usersService.getUserByAll();
+
+        List<ResponseUser> result = new ArrayList<>();
+
+        userList.forEach(v -> result.add(new ModelMapper().map(v, ResponseUser.class)));
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+
+    /*
+    @Description 사용자 정보, 주문내역 조회
+    */
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<ResponseUser> getUser(@PathVariable("userId") String userId) {
+
+        UserDto userDto = usersService.getUserByUserId(userId);
+
+        ResponseUser result = new ModelMapper().map(userDto, ResponseUser.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+
+    /*
+    @Description 작동 상태 확인
+    */
     @GetMapping("/health_check")
     public String status(HttpServletRequest request) {
         return String.format("It's Working in User Service on PORT %s", request.getServerPort());
     }
 
+
+    /*
+    @Description 환영 메세지
+    */
     @GetMapping("/welcome")
     public String welcome() {
         return env.getProperty("greeting.message");
