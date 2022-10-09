@@ -1,5 +1,6 @@
 package com.example.msuserservice.controller;
 
+import com.example.msuserservice.entity.UserEntity;
 import com.example.msuserservice.vo.RequestUser;
 import com.example.msuserservice.vo.ResponseUser;
 import com.example.msuserservice.dto.UserDto;
@@ -13,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -24,6 +27,17 @@ public class UsersController {
     private final UsersService usersService;
 
 
+    @GetMapping("/users")
+    public ResponseEntity<List<ResponseUser>> getUsers() {
+
+        Iterable<UserEntity> userList = usersService.getUserByAll();
+
+        List<ResponseUser> result = new ArrayList<>();
+
+        userList.forEach(v -> result.add(new ModelMapper().map(v, ResponseUser.class)));
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 
     @PostMapping("/users")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
