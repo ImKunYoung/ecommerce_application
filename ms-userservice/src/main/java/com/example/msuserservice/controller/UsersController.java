@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/")
 @RequiredArgsConstructor
@@ -22,8 +24,8 @@ public class UsersController {
     private final UsersService usersService;
 
     @GetMapping("/health_check")
-    public String status() {
-        return "It's Working in User Service";
+    public String status(HttpServletRequest request) {
+        return String.format("It's Working in User Service on PORT %s", request.getServerPort());
     }
 
     @GetMapping("/welcome")
