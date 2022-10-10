@@ -1,16 +1,22 @@
 package com.example.msuserservice.security;
 
-import org.springframework.context.annotation.Configuration;
+import com.example.msuserservice.service.UsersService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.core.env.Environment;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-@Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
-
+    private final UsersService usersService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final Environment env;
 
 
     @Override
@@ -34,6 +40,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         authenticationFilter.setAuthenticationManager(authenticationManager());
 
         return authenticationFilter;
+    }
+
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(usersService).passwordEncoder(bCryptPasswordEncoder);
     }
 
 }
