@@ -1,13 +1,17 @@
 package com.example.mscatalogsservice.entity;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 @Table(name = "catalog")
 public class CatalogEntity {
     @Id
