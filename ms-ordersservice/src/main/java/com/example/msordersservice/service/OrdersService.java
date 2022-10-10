@@ -1,6 +1,7 @@
 package com.example.msordersservice.service;
 
 import com.example.msordersservice.dto.OrderDto;
+import com.example.msordersservice.entity.OrderEntity;
 
 public interface OrdersService {
 
@@ -8,6 +9,6 @@ public interface OrdersService {
 
     OrderDto getOrderByOrderId(String orderId);
 
-    Iterable<OrderDto> getOrdersByUserId(String userId);
+    Iterable<OrderEntity> getOrdersByUserId(String userId);
 
 }
