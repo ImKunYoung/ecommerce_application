@@ -5,12 +5,10 @@ import com.example.mscatalogsservice.service.CatalogService;
 import com.example.mscatalogsservice.vo.ResponseCatalog;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.core.env.Environment;
+//import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,12 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ms-catalogsservice")
 @RequiredArgsConstructor
 public class CatalogController {
 
 
-    private final Environment env;
+//    private final Environment env;
 
     private final CatalogService catalogService;
     
