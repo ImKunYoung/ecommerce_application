@@ -1,6 +1,7 @@
 package com.example.msordersservice.controller;
 
 import com.example.msordersservice.dto.OrderDto;
+import com.example.msordersservice.entity.OrderEntity;
 import com.example.msordersservice.service.OrdersService;
 import com.example.msordersservice.vo.RequestOrder;
 import com.example.msordersservice.vo.ResponseOrder;
@@ -13,6 +14,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -42,7 +45,18 @@ public class OrderController {
     
     
     /*@Description 사용자별 주문 내역 조회*/
-    
+    @GetMapping(value = "/{userId}/orders")
+    public ResponseEntity<List<ResponseOrder>> getOrders(@PathVariable("userId") String userId) {
+
+        Iterable<OrderEntity> orderList = ordersService.getOrdersByUserId(userId);
+
+        List<ResponseOrder> result = new ArrayList<>();
+
+        orderList.forEach(v -> result.add(new ModelMapper().map(v, ResponseOrder.class)));
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
     
     /*@Description 작동 상태 확인*/
     @GetMapping("/health_check")
