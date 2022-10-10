@@ -8,10 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Getter
-@Setter
-@RequiredArgsConstructor
 @ToString
 @Table(name = "orders")
 public class OrderEntity implements Serializable {
