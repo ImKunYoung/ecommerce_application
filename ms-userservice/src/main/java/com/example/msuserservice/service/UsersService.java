@@ -9,4 +9,8 @@ public interface UsersService extends UserDetailsService {
     UserDto getUserByUserId(String userId);
     Iterable<UserEntity> getUserByAll();
 
+
+    /*@Description 사용자 인증을 위한 검색 메소드*/
+    UserDto getUserDetailsByEmail(String email);
+
 }

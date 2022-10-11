@@ -26,7 +26,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/**")
-                .hasIpAddress("192.168.0.0") /*TODO: Change to Gateway IP*/
+                .hasIpAddress("localhost") /*TODO: Change to Gateway IP*/
                 .and()
                 .addFilter(getAuthenticationFilter());
 
@@ -36,8 +36,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
 
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter();
-        authenticationFilter.setAuthenticationManager(authenticationManager());
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(usersService, env, authenticationManager());
 
         return authenticationFilter;
     }
