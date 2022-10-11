@@ -11,5 +11,6 @@ public class MsaDiscoveryserviceApplication {
     public static void main(String[] args) {
         SpringApplication.run(MsaDiscoveryserviceApplication.class, args);
     }
+    /*TODO: -issue 토큰 부분: r14 - 36*/
 
 }
