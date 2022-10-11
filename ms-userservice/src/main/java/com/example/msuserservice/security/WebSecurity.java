@@ -26,7 +26,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/**")
-                .hasIpAddress("192.168.0.0") /*TODO: Change to Gateway IP*/
+                .hasIpAddress("172.0.0.0") /*TODO: Change to Gateway IP*/
                 .and()
                 .addFilter(getAuthenticationFilter());
 
