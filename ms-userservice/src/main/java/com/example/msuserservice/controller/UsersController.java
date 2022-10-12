@@ -81,7 +81,15 @@ public class UsersController {
     */
     @GetMapping("/health_check")
     public String status(HttpServletRequest request) {
-        return String.format("It's Working in User Service on PORT %s", request.getServerPort());
+
+        return String.format("It's Working in User Service, port(local.server.port)=" + env.getProperty("local.server.port")
+                + ", port(server.port)=" + env.getProperty("server.port")
+                + ", token_secret=" + env.getProperty("token.secret")
+                + ", token_expiration_time=" + env.getProperty("token.expiration_time")
+        );
+
+
+//        return String.format("It's Working in User Service on PORT %s", request.getServerPort());
     }
 
 
