@@ -29,8 +29,7 @@ public class OrdersServiceImpl implements OrdersService{
 
         repository.save(orderEntity);
 
-        OrderDto returnValue = modelMapperer.map(orderEntity, OrderDto.class);
-        return returnValue;
+        return modelMapperer.map(orderEntity, OrderDto.class);
     }
 
     @Override
@@ -38,9 +37,7 @@ public class OrdersServiceImpl implements OrdersService{
 
         OrderEntity orderEntity = repository.findByOrderId(orderId);
 
-        OrderDto orderDto = new ModelMapper().map(orderEntity, OrderDto.class);
-
-        return orderDto;
+        return new ModelMapper().map(orderEntity, OrderDto.class);
     }
 
     @Override
