@@ -8,11 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 @SuppressWarnings({"ALL", "JpaDataSourceORMInspection"})
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@ToString
 @Table(name = "orders")
 public class OrderEntity implements Serializable {
 
