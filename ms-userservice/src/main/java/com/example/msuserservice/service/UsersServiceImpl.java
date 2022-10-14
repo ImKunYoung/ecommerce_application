@@ -8,11 +8,17 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +31,10 @@ public class UsersServiceImpl implements UsersService {
     private final UserRepository userRepository;
 
     private final BCryptPasswordEncoder passwordEncoder;
+
+    private final Environment env;
+
+    private final RestTemplate restTemplate;
 
 
     @Override
@@ -49,7 +59,15 @@ public class UsersServiceImpl implements UsersService {
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
-        List<ResponseOrder> ordersList = new ArrayList<>();
+
+
+        String ordersUrl = String.format(env.getProperty("order_service.url"), userId);
+
+        ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(ordersUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {});
+
+        List<ResponseOrder> ordersList = orderListResponse.getBody();
+
+
 
         userDto.setOrdersList(ordersList);
 
