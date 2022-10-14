@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,7 +66,7 @@ public class UsersController {
     /*
     @Description 사용자 정보, 주문내역 조회
     */
-    @GetMapping("/users/{userId}")
+    @GetMapping(value = "/users/{userId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ResponseUser> getUser(@PathVariable("userId") String userId) {
 
         UserDto userDto = usersService.getUserByUserId(userId);
