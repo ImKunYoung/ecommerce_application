@@ -1,4 +1,4 @@
-package com.example.msuserservice.entity;
+package com.example.msuserservice.inner.service.domain.entity;
 
 import lombok.Data;
 

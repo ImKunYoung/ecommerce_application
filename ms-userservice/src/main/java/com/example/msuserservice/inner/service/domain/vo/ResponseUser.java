@@ -1,4 +1,4 @@
-package com.example.msuserservice.vo;
+package com.example.msuserservice.inner.service.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
