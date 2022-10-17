@@ -1,9 +1,9 @@
 package com.example.msuserservice.service;
 
 import com.example.msuserservice.dto.UserDto;
-import com.example.msuserservice.entity.UserEntity;
+import com.example.msuserservice.service.domain.entity.UserEntity;
 import com.example.msuserservice.repository.UserRepository;
-import com.example.msuserservice.vo.ResponseOrder;
+import com.example.msuserservice.service.domain.vo.ResponseOrder;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

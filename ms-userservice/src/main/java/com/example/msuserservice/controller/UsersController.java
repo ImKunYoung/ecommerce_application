@@ -1,8 +1,8 @@
 package com.example.msuserservice.controller;
 
-import com.example.msuserservice.entity.UserEntity;
-import com.example.msuserservice.vo.RequestUser;
-import com.example.msuserservice.vo.ResponseUser;
+import com.example.msuserservice.service.domain.entity.UserEntity;
+import com.example.msuserservice.service.domain.vo.RequestUser;
+import com.example.msuserservice.service.domain.vo.ResponseUser;
 import com.example.msuserservice.dto.UserDto;
 import com.example.msuserservice.service.UsersService;
 import lombok.RequiredArgsConstructor;
