@@ -1,5 +1,6 @@
 package com.example.msuserservice;
 
+import com.example.msuserservice.outer.event.FeignErrorDecoder;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,6 +31,10 @@ public class MsUserserviceApplication {
     public Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
     }
+
+//    @Bean
+//    public FeignErrorDecoder getFeignErrorDecoder() { return new FeignErrorDecoder(); }
+
 
     public static void main(String[] args) {
         SpringApplication.run(MsUserserviceApplication.class, args);
