@@ -1,6 +1,6 @@
 package com.example.msuserservice.outer.security;
 
-import com.example.msuserservice.inner.UsersService;
+import com.example.msuserservice.middle.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

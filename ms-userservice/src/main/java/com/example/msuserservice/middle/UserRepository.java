@@ -1,4 +1,4 @@
-package com.example.msuserservice.outer.repository;
+package com.example.msuserservice.middle;
 
 import com.example.msuserservice.inner.service.domain.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;

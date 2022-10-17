@@ -1,11 +1,11 @@
 package com.example.msuserservice.inner.service;
 
-import com.example.msuserservice.inner.OrderServiceClient;
-import com.example.msuserservice.inner.UsersService;
+import com.example.msuserservice.middle.OrderServiceClient;
+import com.example.msuserservice.middle.UsersService;
 import com.example.msuserservice.inner.service.domain.entity.UserEntity;
 import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
 import com.example.msuserservice.outer.dto.UserDto;
-import com.example.msuserservice.outer.repository.UserRepository;
+import com.example.msuserservice.middle.UserRepository;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
