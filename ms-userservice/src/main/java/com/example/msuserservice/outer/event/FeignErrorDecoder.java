@@ -6,9 +6,11 @@ import feign.codec.ErrorDecoder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
+@Component
 public class FeignErrorDecoder implements ErrorDecoder {
 
     private final Environment env;
