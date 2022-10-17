@@ -64,14 +64,20 @@ public class UsersServiceImpl implements UsersService {
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
 
+        /* Using a restemplate*/
 
-        String ordersUrl = String.format(env.getProperty("order_service.url"), userId);
+//        String ordersUrl = String.format(env.getProperty("order_service.url"), userId);
+//
+//        ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(ordersUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {});
 
-        ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(ordersUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {});
-
-        List<ResponseOrder> ordersList = orderListResponse.getBody();
+        List<ResponseOrder> ordersList = null;
 
 
+        try {
+            ordersList = orderServiceClient.getOrders(userId);
+        } catch (FeignException e) {
+            log.error(e.getMessage());
+        }
 
         userDto.setOrdersList(ordersList);
 
@@ -103,27 +109,6 @@ public class UsersServiceImpl implements UsersService {
         return new User(userEntity.getEmail(), userEntity.getEncryptedPwd(), true, true, true, true, new ArrayList<>());
     }
 
-
-    @Override
-    public UserDto getUserDetailsByUserId(String userId) {
-
-        UserEntity userEntity = userRepository.findByUserId(userId);
-
-        if(userEntity == null) throw new UsernameNotFoundException("User not found");
-
-        UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
-
-        List<ResponseOrder> ordersList = null;
-        try {
-            ordersList = orderServiceClient.getOrders(userId);
-        } catch (FeignException e) {
-            log.error(e.getMessage());
-        }
-
-        userDto.setOrdersList(ordersList);
-
-        return userDto;
-    }
 
 }
 
