@@ -1,26 +1,23 @@
 package com.example.msuserservice.inner.service;
 
-import com.example.msuserservice.inner.UsersService;
-import com.example.msuserservice.outer.dto.UserDto;
 import com.example.msuserservice.inner.OrderServiceClient;
+import com.example.msuserservice.inner.UsersService;
 import com.example.msuserservice.inner.service.domain.entity.UserEntity;
-import com.example.msuserservice.outer.repository.UserRepository;
 import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
+import com.example.msuserservice.outer.dto.UserDto;
+import com.example.msuserservice.outer.repository.UserRepository;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.core.env.Environment;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+//import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+//import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,9 +32,9 @@ public class UsersServiceImpl implements UsersService {
 
     private final BCryptPasswordEncoder passwordEncoder;
 
-    private final Environment env;
+//    private final Environment env;
 
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
 
     private final OrderServiceClient orderServiceClient;
 
@@ -64,14 +61,21 @@ public class UsersServiceImpl implements UsersService {
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
 
+        /* Using a restemplate*/
 
-        String ordersUrl = String.format(env.getProperty("order_service.url"), userId);
+//        String ordersUrl = String.format(env.getProperty("order_service.url"), userId);
+//
+//        ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(ordersUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {});
 
-        ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(ordersUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {});
+        /* Using a feign client */
+        List<ResponseOrder> ordersList = null;
 
-        List<ResponseOrder> ordersList = orderListResponse.getBody();
 
-
+        try {
+            ordersList = orderServiceClient.getOrders(userId);
+        } catch (FeignException e) {
+            log.error(e.getMessage());
+        }
 
         userDto.setOrdersList(ordersList);
 
@@ -103,27 +107,6 @@ public class UsersServiceImpl implements UsersService {
         return new User(userEntity.getEmail(), userEntity.getEncryptedPwd(), true, true, true, true, new ArrayList<>());
     }
 
-
-    @Override
-    public UserDto getUserDetailsByUserId(String userId) {
-
-        UserEntity userEntity = userRepository.findByUserId(userId);
-
-        if(userEntity == null) throw new UsernameNotFoundException("User not found");
-
-        UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
-
-        List<ResponseOrder> ordersList = null;
-        try {
-            ordersList = orderServiceClient.getOrders(userId);
-        } catch (FeignException e) {
-            log.error(e.getMessage());
-        }
-
-        userDto.setOrdersList(ordersList);
-
-        return userDto;
-    }
 
 }
 

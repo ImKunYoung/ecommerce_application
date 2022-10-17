@@ -13,5 +13,4 @@ public interface UsersService extends UserDetailsService {
     /*@Description 사용자 인증을 위한 검색 메소드*/
     UserDto getUserDetailsByEmail(String email);
 
-    UserDto getUserDetailsByUserId(String userId);
 }
