@@ -1,6 +1,6 @@
-package com.example.msuserservice.repository;
+package com.example.msuserservice.outer.repository;
 
-import com.example.msuserservice.service.domain.entity.UserEntity;
+import com.example.msuserservice.inner.service.domain.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<UserEntity, Long> {

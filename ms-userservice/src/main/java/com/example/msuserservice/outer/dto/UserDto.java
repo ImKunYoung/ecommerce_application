@@ -1,6 +1,6 @@
-package com.example.msuserservice.dto;
+package com.example.msuserservice.outer.dto;
 
-import com.example.msuserservice.service.domain.vo.ResponseOrder;
+import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
 import lombok.Data;
 
 import java.util.Date;

@@ -1,7 +1,7 @@
-package com.example.msuserservice.service;
+package com.example.msuserservice.inner;
 
-import com.example.msuserservice.dto.UserDto;
-import com.example.msuserservice.service.domain.entity.UserEntity;
+import com.example.msuserservice.outer.dto.UserDto;
+import com.example.msuserservice.inner.service.domain.entity.UserEntity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UsersService extends UserDetailsService {

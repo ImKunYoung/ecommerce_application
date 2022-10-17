@@ -1,10 +1,10 @@
-package com.example.msuserservice.controller;
+package com.example.msuserservice.outer.controller;
 
-import com.example.msuserservice.service.domain.entity.UserEntity;
-import com.example.msuserservice.service.domain.vo.RequestUser;
-import com.example.msuserservice.service.domain.vo.ResponseUser;
-import com.example.msuserservice.dto.UserDto;
-import com.example.msuserservice.service.UsersService;
+import com.example.msuserservice.inner.service.domain.entity.UserEntity;
+import com.example.msuserservice.inner.service.domain.vo.RequestUser;
+import com.example.msuserservice.inner.service.domain.vo.ResponseUser;
+import com.example.msuserservice.outer.dto.UserDto;
+import com.example.msuserservice.inner.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

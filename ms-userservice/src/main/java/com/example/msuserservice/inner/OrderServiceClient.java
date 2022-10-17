@@ -1,6 +1,6 @@
-package com.example.msuserservice.service;
+package com.example.msuserservice.inner;
 
-import com.example.msuserservice.service.domain.vo.ResponseOrder;
+import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
