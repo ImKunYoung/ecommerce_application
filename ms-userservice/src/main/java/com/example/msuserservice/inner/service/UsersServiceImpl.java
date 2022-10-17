@@ -6,7 +6,9 @@ import com.example.msuserservice.inner.OrderServiceClient;
 import com.example.msuserservice.inner.service.domain.entity.UserEntity;
 import com.example.msuserservice.outer.repository.UserRepository;
 import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.ParameterizedTypeReference;
@@ -26,6 +28,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UsersServiceImpl implements UsersService {
 
     private final UserRepository userRepository;
@@ -110,7 +113,12 @@ public class UsersServiceImpl implements UsersService {
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
-        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+        List<ResponseOrder> ordersList = null;
+        try {
+            ordersList = orderServiceClient.getOrders(userId);
+        } catch (FeignException e) {
+            log.error(e.getMessage());
+        }
 
         userDto.setOrdersList(ordersList);
 
