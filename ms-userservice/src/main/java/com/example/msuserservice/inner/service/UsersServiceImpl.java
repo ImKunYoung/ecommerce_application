@@ -68,14 +68,15 @@ public class UsersServiceImpl implements UsersService {
 //        ResponseEntity<List<ResponseOrder>> orderListResponse = restTemplate.exchange(ordersUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {});
 
         /* Using a feign client */
-        List<ResponseOrder> ordersList = null;
+        /* FeignException handling*/
+//        List<ResponseOrder> ordersList = null;
+//        try {
+//            ordersList = orderServiceClient.getOrders(userId);
+//        } catch (FeignException e) { log.error(e.getMessage()); }
 
 
-        try {
-            ordersList = orderServiceClient.getOrders(userId);
-        } catch (FeignException e) {
-            log.error(e.getMessage());
-        }
+        /* ErrorDecoder */
+        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 
         userDto.setOrdersList(ordersList);
 
