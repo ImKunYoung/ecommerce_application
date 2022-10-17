@@ -1,7 +1,7 @@
 package com.example.msuserservice.outer.security;
 
 import com.example.msuserservice.outer.dto.UserDto;
-import com.example.msuserservice.inner.UsersService;
+import com.example.msuserservice.middle.UsersService;
 import com.example.msuserservice.inner.service.domain.vo.RequestLogin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;

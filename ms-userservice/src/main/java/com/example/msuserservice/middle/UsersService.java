@@ -1,4 +1,4 @@
-package com.example.msuserservice.inner;
+package com.example.msuserservice.middle;
 
 import com.example.msuserservice.outer.dto.UserDto;
 import com.example.msuserservice.inner.service.domain.entity.UserEntity;
