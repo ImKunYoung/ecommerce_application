@@ -15,8 +15,8 @@ spring:
         enabled: true
       server:
         git:
-          uri: https://github.com/ImKunYoung/ecommerce_application/tree/main/config-repo
-          search-paths: ms-catalogsservice, ms-userservice, ms-ordersservice
+          uri: https://github.com/ImKunYoung/ecommerce_application_config-repo
+          search-paths: /ms-catalogsservice,/ms-userservice,/ms-ordersservice
 
 
 management:
