@@ -6,12 +6,15 @@ import com.example.msuserservice.inner.service.domain.entity.UserEntity;
 import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
 import com.example.msuserservice.outer.dto.UserDto;
 import com.example.msuserservice.middle.UserRepository;
-import feign.FeignException;
+//import feign.FeignException;
+import feign.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 //import org.springframework.core.env.Environment;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -37,6 +40,8 @@ public class UsersServiceImpl implements UsersService {
 //    private final RestTemplate restTemplate;
 
     private final OrderServiceClient orderServiceClient;
+
+    private final CircuitBreakerFactory circuitBreakerFactory;
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -76,7 +81,11 @@ public class UsersServiceImpl implements UsersService {
 
 
         /* ErrorDecoder */
-        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+//        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+
+        /* CircuitBreaker */
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
+        List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId), throwable -> new ArrayList<>());
 
         userDto.setOrdersList(ordersList);
 
@@ -107,6 +116,8 @@ public class UsersServiceImpl implements UsersService {
 
         return new User(userEntity.getEmail(), userEntity.getEncryptedPwd(), true, true, true, true, new ArrayList<>());
     }
+
+
 
 
 }

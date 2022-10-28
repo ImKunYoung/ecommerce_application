@@ -1,6 +1,6 @@
 package com.example.msuserservice;
 
-import com.example.msuserservice.outer.event.FeignErrorDecoder;
+//import com.example.msuserservice.outer.event.FeignErrorDecoder;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
