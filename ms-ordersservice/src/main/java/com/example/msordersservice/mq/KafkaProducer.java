@@ -26,4 +26,6 @@ public class KafkaProducer {
 
         return orderDto;
     }
+
+    // TODO: service interface를 통해 생성 (리팩터링할 것)
 }
