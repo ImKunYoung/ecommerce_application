@@ -2,6 +2,7 @@ package com.example.msordersservice.controller;
 
 import com.example.msordersservice.dto.OrderDto;
 import com.example.msordersservice.entity.OrderEntity;
+import com.example.msordersservice.mq.KafkaProducer;
 import com.example.msordersservice.service.OrdersService;
 import com.example.msordersservice.vo.RequestOrder;
 import com.example.msordersservice.vo.ResponseOrder;
@@ -21,6 +22,7 @@ import java.util.List;
 public class OrderController {
 
     private final OrdersService ordersService;
+    private final KafkaProducer kafkaProducer;
 
 
     /*@Description 사용자별 상품 주문*/
@@ -28,16 +30,15 @@ public class OrderController {
     public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId, @RequestBody RequestOrder orderDetails) {
 
         ModelMapper mapper = new ModelMapper();
-
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         OrderDto orderDto = mapper.map(orderDetails, OrderDto.class);
-
         orderDto.setUserId(userId);
-
         OrderDto createdOrder = ordersService.createOrder(orderDto);
-
         ResponseOrder returnValue = mapper.map(createdOrder, ResponseOrder.class);
+
+        /* Send an order to the Kafka */
+        kafkaProducer.send("example-order-topic", orderDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
