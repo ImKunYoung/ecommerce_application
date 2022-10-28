@@ -10,7 +10,7 @@ import java.util.List;
 @FeignClient(name = "ms-ordersservice") // Order-Service의 application name
 public interface OrderServiceClient {
 
-    @GetMapping("/ms-ordersservice/{userId}/orders") // 주문 확인을 위한 URI
+    @GetMapping("/{userId}/orders") // 주문 확인을 위한 URI
     List<ResponseOrder> getOrders(@PathVariable String userId);
 
 
