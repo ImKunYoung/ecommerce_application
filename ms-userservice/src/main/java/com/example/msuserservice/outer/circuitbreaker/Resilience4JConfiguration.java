@@ -29,6 +29,5 @@ public class Resilience4JConfiguration {
                 .timeLimiterConfig(timeLimiterConfig)
                 .circuitBreakerConfig(circuitBreakerConfig)
                 .build());
-        /*TODO: -p117*/
     }
 }
