@@ -1,7 +1,7 @@
 package com.example.mscatalogsservice.controller;
 
 import com.example.mscatalogsservice.entity.CatalogEntity;
-import com.example.mscatalogsservice.service.CatalogService;
+import com.example.mscatalogsservice.vo.service.CatalogService;
 import com.example.mscatalogsservice.vo.ResponseCatalog;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -39,8 +39,5 @@ public class CatalogController {
     public String status(HttpServletRequest request) {
         return String.format("It's Working in Catalog Service on PORT %s", request.getServerPort());
     }
-
-
-
 
 }
