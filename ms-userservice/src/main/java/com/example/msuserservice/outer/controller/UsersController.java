@@ -95,8 +95,16 @@ public class UsersController {
 
 
     /*
-   @Description 작동 상태 확인
+   @Description 유저 삭제
    */
+    @DeleteMapping("/users/{userId}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("userId") String userId) {
+
+        usersService.deleteUser(userId);
+
+        return ResponseEntity.noContent().build();
+    }
+
 
     
     /*
