@@ -49,6 +49,8 @@ dependencies {
 
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
+    implementation 'org.springframework.kafka:spring-kafka'
+
     // Deprecated
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.10.RELEASE'
 
