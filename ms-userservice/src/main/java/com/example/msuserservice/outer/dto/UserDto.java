@@ -1,12 +1,14 @@
 package com.example.msuserservice.outer.dto;
 
 import com.example.msuserservice.inner.service.domain.vo.ResponseOrder;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
 public class UserDto {
     private String email;
     private String name;
@@ -18,4 +20,5 @@ public class UserDto {
 
     /*TODO: -setOrders*/
     private List<ResponseOrder> ordersList;
+
 }

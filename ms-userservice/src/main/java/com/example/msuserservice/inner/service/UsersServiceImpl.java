@@ -109,6 +109,15 @@ public class UsersServiceImpl implements UsersService {
         return new ModelMapper().map(userEntity, UserDto.class);
     }
 
+    @Override
+    public void deleteUser(String userId) {
+        UserEntity userEntity = userRepository.findByUserId(userId);
+
+        if(userEntity == null) throw new UsernameNotFoundException("User not found");
+
+        userRepository.delete(userEntity);
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

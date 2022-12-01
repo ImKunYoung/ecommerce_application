@@ -95,6 +95,11 @@ public class UsersController {
 
 
     /*
+   @Description 작동 상태 확인
+   */
+
+    
+    /*
     @Description 환영 메세지
     */
     @GetMapping("/welcome")

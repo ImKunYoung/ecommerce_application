@@ -1,5 +1,6 @@
 package com.example.msuserservice.controller;
 
+import com.example.msuserservice.outer.controller.UsersController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
