@@ -118,6 +118,13 @@ public class UsersServiceImpl implements UsersService {
         userRepository.delete(userEntity);
     }
 
+    @Override
+    public Object getUserCount() {
+
+        return userRepository.findAll();
+
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

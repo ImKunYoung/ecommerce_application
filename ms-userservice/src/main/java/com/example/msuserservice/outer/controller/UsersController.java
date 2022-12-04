@@ -106,6 +106,12 @@ public class UsersController {
     }
 
 
+    // 조회 카운트
+    @GetMapping("/users/count")
+    public ResponseEntity<Object> getUserCount() {
+
+        return ResponseEntity.status(HttpStatus.OK).body(usersService.getUserCount());
+    }
     
     /*
     @Description 환영 메세지

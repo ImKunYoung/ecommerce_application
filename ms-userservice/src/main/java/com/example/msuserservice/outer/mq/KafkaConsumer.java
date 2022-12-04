@@ -1,8 +1,7 @@
 package com.example.msuserservice.outer.mq;
 
 import com.example.msuserservice.inner.service.domain.entity.UserEntity;
-import com.example.msuserservice.inner.service.domain.entity.recentlyViewdVo;
-import com.example.msuserservice.middle.CountVoRepository;
+import com.example.msuserservice.inner.service.domain.entity.RecentlyViewed;
 import com.example.msuserservice.middle.UserRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -41,13 +40,8 @@ public class KafkaConsumer {
 
         UserEntity userEntity = userRepository.findByUserId((String) map.get("userId"));
 
-        recentlyViewdVo recentlyViewdVo = new recentlyViewdVo();
-        recentlyViewdVo.setCatalog((String) map.get("productId"));
-        recentlyViewdVo.setUserEntity(userEntity);
 
-        countVoRepository.save(recentlyViewdVo);
-
-//        userEntity.setRecentlyViewed((String) map.get("productId"));
+        userEntity.setRecentlyViewed((String) map.get("productId"));
 
 
         log.info("Kafka Consumer send data from the ms-ordersservice: " + userEntity);

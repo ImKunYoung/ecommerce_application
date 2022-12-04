@@ -17,4 +17,5 @@ public interface UsersService extends UserDetailsService {
     void deleteUser(String userId);
 
 
+    Object getUserCount();
 }

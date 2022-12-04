@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -32,16 +33,13 @@ public class UserEntity {
     private String encryptedPwd;
 
 
-//    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
-//    @ToString.Exclude
-//    private List<recentlyViewdVo> recentlyViewdVoList;
+    private RecentlyViewed recentlyViewedList;
 
 
-//    public void setRecentlyViewed(String productId) {
-//        recentlyViewdVo recentlyViewdVo = new recentlyViewdVo();
-//        recentlyViewdVo.setCatalog(productId);
-//        recentlyViewdVo.setUserEntity(this);
-//    }
+    public void setRecentlyViewed(String productId) {
+        RecentlyViewed recentlyViewdVo = new RecentlyViewed();
+        recentlyViewdVo.setCatalog(productId);
+    }
 
     @Override
     public boolean equals(Object o) {
