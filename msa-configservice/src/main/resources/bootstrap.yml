@@ -1,3 +1,21 @@
 spring:
   application:
     name: msa-configservice
+
+
+#spring:
+#  application:
+#  rabbitmq:
+#  host: localhost
+#spring:
+#  application:
+#  rabbitmq:
+#  port: 5672
+#spring:
+#  application:
+#  rabbitmq:
+#  username: admin
+#spring:
+#  application:
+#  rabbitmq:
+#  password: admin
