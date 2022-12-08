@@ -57,3 +57,25 @@ docker push imkunyoung/discoveryservice:1.0
 docker run -d -p 8761:8761 --network ecommerce-network -e "spring.cloud.config.uri=http://msa-configservice:8888" --name discovery-service imkunyoung/discoveryservice:1.0
 ```
 
+- `run`: 컨테이너 실행
+- `-d`: 백그라운드 실행
+- `-p 8761:8761`: 포트 포워딩
+- `--network ecommerce-network`: 네트워크 연결
+- `-e "spring.cloud.config.uri=http://msa-configservice:8888"`: 환경 변수 설정
+- `--name discovery-service`: 컨테이너 이름 지정
+- `imkunyoung/discoveryservice:1.0`: 실행할 이미지 이름
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+```shell
+docker network inspect ecommerce-network
+```
+- `network inspect`: 네트워크 정보 확인
+
+
