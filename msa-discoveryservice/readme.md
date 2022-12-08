@@ -53,4 +53,7 @@ docker push imkunyoung/discoveryservice:1.0
 <br/>
 
 
+```shell
+docker run -d -p 8761:8761 --network ecommerce-network -e "spring.cloud.config.uri=http://msa-configservice:8888" --name discovery-service imkunyoung/discoveryservice:1.0
+```
 
