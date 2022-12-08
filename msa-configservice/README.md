@@ -217,7 +217,21 @@ docker logs configservice
 - ``configservice``: 컨테이너 이름
 
 
+<br/>
+<br/>
 
+---
+
+<br/>
+<br/>
+
+
+```shell
+docker push imkunyoung/msa-configservice:0.0.1-SNAPSHOT
+```
+
+- `push`: 이미지 푸시
+- `imkunyoung/configservice`: 이미지 이름
 
 
 
