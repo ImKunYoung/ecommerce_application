@@ -10,6 +10,14 @@ ENTRYPOINT ["java","-jar","/discoveryservice.jar"]
 - `COPY build/libs/msa-discoveryservice-0.0.1-SNAPSHOT.jar discoveryservice.jar`: jar 파일 복사
 - `ENTRYPOINT ["java","-jar","discoveryservice.jar"]`: 실행 명령어
 
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
 ```shell
 
 ```shell
@@ -20,7 +28,30 @@ docker build -t imkunyoung/discoveryservice .
 - `--tag= imkunyoung/discoveryservice`: 이미지 이름
 - `.`: 현재 디렉토리
 
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+
 ```shell
-docker images
+docker push imkunyoung/discoveryservice
 ```
+
+- `push`: 이미지 푸시
+- `imkunyoung/discoveryservice`: 이미지 이름
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+
 
