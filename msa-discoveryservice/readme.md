@@ -18,7 +18,6 @@ ENTRYPOINT ["java","-jar","/discoveryservice.jar"]
 <br/>
 <br/>
 
-```shell
 
 ```shell
 docker build -t imkunyoung/discoveryservice:1.0 .
