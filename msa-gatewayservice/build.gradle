@@ -29,6 +29,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.5'
 
     implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-rabbit', version: '3.2.6'
 
 }
 
