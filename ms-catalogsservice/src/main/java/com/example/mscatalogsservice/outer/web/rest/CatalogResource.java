@@ -3,7 +3,7 @@ package com.example.mscatalogsservice.outer.web.rest;
 import com.example.mscatalogsservice.outer.dto.CatalogDto;
 import com.example.mscatalogsservice.outer.dto.ResponseCatalog;
 import com.example.mscatalogsservice.inner.domain.CatalogEntity;
-import com.example.mscatalogsservice.outer.mqadapter.KafkaProducer;
+import com.example.mscatalogsservice.outer.mqadapter.KafkaProducerImpl;
 import com.example.mscatalogsservice.inner.service.CatalogService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -22,7 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CatalogResource {
 
-    private final KafkaProducer kafkaProducer;
+    private final KafkaProducerImpl kafkaProducer;
 
 //    private final Environment env;
 
