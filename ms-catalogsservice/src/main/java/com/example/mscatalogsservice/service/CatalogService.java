@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.vo.service;
+package com.example.mscatalogsservice.service;
 
 import com.example.mscatalogsservice.dto.CatalogDto;
 import com.example.mscatalogsservice.entity.CatalogEntity;
