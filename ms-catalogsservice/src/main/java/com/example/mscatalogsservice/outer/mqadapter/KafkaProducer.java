@@ -1,6 +1,6 @@
-package com.example.mscatalogsservice.adapter.mq;
+package com.example.mscatalogsservice.outer.mqadapter;
 
-import com.example.mscatalogsservice.adapter.dto.CatalogDto;
+import com.example.mscatalogsservice.outer.dto.CatalogDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

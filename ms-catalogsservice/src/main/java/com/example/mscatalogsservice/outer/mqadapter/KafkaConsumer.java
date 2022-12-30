@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.adapter.mq;
+package com.example.mscatalogsservice.outer.mqadapter;
 
 import com.example.mscatalogsservice.entity.CatalogEntity;
 import com.example.mscatalogsservice.repository.CatalogRepository;

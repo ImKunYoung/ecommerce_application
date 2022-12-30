@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.adapter.dto;
+package com.example.mscatalogsservice.outer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

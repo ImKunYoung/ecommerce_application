@@ -1,9 +1,9 @@
-package com.example.mscatalogsservice.adapter.rest;
+package com.example.mscatalogsservice.outer.web.rest;
 
-import com.example.mscatalogsservice.adapter.dto.CatalogDto;
-import com.example.mscatalogsservice.adapter.dto.ResponseCatalog;
+import com.example.mscatalogsservice.outer.dto.CatalogDto;
+import com.example.mscatalogsservice.outer.dto.ResponseCatalog;
 import com.example.mscatalogsservice.entity.CatalogEntity;
-import com.example.mscatalogsservice.adapter.mq.KafkaProducer;
+import com.example.mscatalogsservice.outer.mqadapter.KafkaProducer;
 import com.example.mscatalogsservice.service.CatalogService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
