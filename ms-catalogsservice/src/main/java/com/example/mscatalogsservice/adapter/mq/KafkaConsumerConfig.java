@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.mq;
+package com.example.mscatalogsservice.adapter.mq;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

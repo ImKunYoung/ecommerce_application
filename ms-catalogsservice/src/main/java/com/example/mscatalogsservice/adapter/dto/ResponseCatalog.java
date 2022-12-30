@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.dto;
+package com.example.mscatalogsservice.adapter.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

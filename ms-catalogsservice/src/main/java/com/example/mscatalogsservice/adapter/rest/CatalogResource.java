@@ -1,10 +1,10 @@
-package com.example.mscatalogsservice.web.rest;
+package com.example.mscatalogsservice.adapter.rest;
 
-import com.example.mscatalogsservice.dto.CatalogDto;
+import com.example.mscatalogsservice.adapter.dto.CatalogDto;
+import com.example.mscatalogsservice.adapter.dto.ResponseCatalog;
 import com.example.mscatalogsservice.entity.CatalogEntity;
-import com.example.mscatalogsservice.mq.KafkaProducer;
+import com.example.mscatalogsservice.adapter.mq.KafkaProducer;
 import com.example.mscatalogsservice.service.CatalogService;
-import com.example.mscatalogsservice.dto.ResponseCatalog;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 //import org.springframework.core.env.Environment;
