@@ -1,10 +1,10 @@
-package com.example.mscatalogsservice.controller;
+package com.example.mscatalogsservice.outer.web.rest;
 
-import com.example.mscatalogsservice.dto.CatalogDto;
-import com.example.mscatalogsservice.entity.CatalogEntity;
-import com.example.mscatalogsservice.mq.KafkaProducer;
-import com.example.mscatalogsservice.vo.service.CatalogService;
-import com.example.mscatalogsservice.vo.ResponseCatalog;
+import com.example.mscatalogsservice.outer.dto.CatalogDto;
+import com.example.mscatalogsservice.outer.dto.CatalogRes;
+import com.example.mscatalogsservice.inner.domain.CatalogEntity;
+import com.example.mscatalogsservice.outer.mqadapter.KafkaProducerImpl;
+import com.example.mscatalogsservice.inner.service.CatalogService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 //import org.springframework.core.env.Environment;
@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.catalog.Catalog;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class CatalogController {
+public class CatalogResource {
 
-    private final KafkaProducer kafkaProducer;
+    private final KafkaProducerImpl kafkaProducer;
 
 //    private final Environment env;
 
@@ -31,11 +30,11 @@ public class CatalogController {
     
     /*@Description 상품 목록 조회*/
     @GetMapping("/catalogs")
-    public ResponseEntity<List<ResponseCatalog>> getCatalogs() {
+    public ResponseEntity<List<CatalogRes>> getCatalogs() {
         Iterable<CatalogEntity> allCatalogs = catalogService.getAllCatalogs();
 
-        List<ResponseCatalog> result = new ArrayList<>();
-        allCatalogs.forEach(v -> result.add(new ModelMapper().map(v, ResponseCatalog.class)));
+        List<CatalogRes> result = new ArrayList<>();
+        allCatalogs.forEach(v -> result.add(new ModelMapper().map(v, CatalogRes.class)));
 
 
 

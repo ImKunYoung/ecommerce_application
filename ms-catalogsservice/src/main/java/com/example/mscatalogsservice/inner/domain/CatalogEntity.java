@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.entity;
+package com.example.mscatalogsservice.inner.domain;
 
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -12,6 +12,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
+@Builder
 @Table(name = "catalog")
 public class CatalogEntity {
     @Id

@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.vo;
+package com.example.mscatalogsservice.outer.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseCatalog {
+public class CatalogRes {
     private String productId;
     private String productName;
     private Integer stock;

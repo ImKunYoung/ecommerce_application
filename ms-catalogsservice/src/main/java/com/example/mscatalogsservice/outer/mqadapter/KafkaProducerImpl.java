@@ -1,6 +1,6 @@
-package com.example.mscatalogsservice.mq;
+package com.example.mscatalogsservice.outer.mqadapter;
 
-import com.example.mscatalogsservice.dto.CatalogDto;
+import com.example.mscatalogsservice.outer.dto.CatalogDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class KafkaProducer {
+public class KafkaProducerImpl implements KafkaProducer {
+
     private final KafkaTemplate<String, String> kafkaTemplate;
 
+    @Override
     public CatalogDto send(String kafkaTopic, CatalogDto catalogDto) {
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = "";
@@ -26,6 +28,4 @@ public class KafkaProducer {
 
         return catalogDto;
     }
-
-    // TODO: service interface를 통해 생성 (리팩터링할 것)
 }

@@ -27,7 +27,7 @@ public class MsCatalogsserviceApplication {
 <br/>
 
 ```java
-package com.example.mscatalogsservice.controller;
+package com.example.mscatalogsservice.web;
 
 import com.example.mscatalogsservice.entity.CatalogEntity;
 import com.example.mscatalogsservice.service.CatalogService;
@@ -52,7 +52,7 @@ public class CatalogController {
 //    private final Environment env;
 
     private final CatalogService catalogService;
-    
+
     /*@Description 상품 목록 조회*/
     @GetMapping("/catalogs")
     public ResponseEntity<List<ResponseCatalog>> getCatalogs() {

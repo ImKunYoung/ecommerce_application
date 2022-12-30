@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.mq;
+package com.example.mscatalogsservice.outer.mqadapter;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

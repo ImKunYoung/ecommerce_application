@@ -1,14 +1,13 @@
 package com.example.mscatalogsservice.repository;
 
-import com.example.mscatalogsservice.entity.CatalogEntity;
+import com.example.mscatalogsservice.inner.domain.CatalogEntity;
+import com.example.mscatalogsservice.inner.repository.CatalogRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.stream.IntStream;
-
 @SpringBootTest
-public class CatalogRepositoryTest {
+class CatalogRepositoryTest {
 
 
     @Autowired
@@ -17,7 +16,7 @@ public class CatalogRepositoryTest {
 
 
     @Test
-    public void 게시글저장_불러오기() {
+    void 게시글저장_불러오기() {
 
         // given
         String title = "테스트 게시글";
