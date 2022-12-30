@@ -1,8 +1,8 @@
-package com.example.mscatalogsservice.service;
+package com.example.mscatalogsservice.inner.service;
 
 import com.example.mscatalogsservice.outer.dto.CatalogDto;
-import com.example.mscatalogsservice.entity.CatalogEntity;
-import com.example.mscatalogsservice.repository.CatalogRepository;
+import com.example.mscatalogsservice.inner.domain.CatalogEntity;
+import com.example.mscatalogsservice.inner.repository.CatalogRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;

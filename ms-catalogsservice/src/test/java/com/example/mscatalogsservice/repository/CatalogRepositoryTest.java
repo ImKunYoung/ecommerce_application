@@ -1,11 +1,10 @@
 package com.example.mscatalogsservice.repository;
 
-import com.example.mscatalogsservice.entity.CatalogEntity;
+import com.example.mscatalogsservice.inner.domain.CatalogEntity;
+import com.example.mscatalogsservice.inner.repository.CatalogRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.stream.IntStream;
 
 @SpringBootTest
 public class CatalogRepositoryTest {

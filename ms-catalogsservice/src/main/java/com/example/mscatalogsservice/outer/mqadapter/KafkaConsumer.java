@@ -1,7 +1,7 @@
 package com.example.mscatalogsservice.outer.mqadapter;
 
-import com.example.mscatalogsservice.entity.CatalogEntity;
-import com.example.mscatalogsservice.repository.CatalogRepository;
+import com.example.mscatalogsservice.inner.domain.CatalogEntity;
+import com.example.mscatalogsservice.inner.repository.CatalogRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

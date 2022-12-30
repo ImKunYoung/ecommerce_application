@@ -1,7 +1,7 @@
-package com.example.mscatalogsservice.service;
+package com.example.mscatalogsservice.inner.service;
 
 import com.example.mscatalogsservice.outer.dto.CatalogDto;
-import com.example.mscatalogsservice.entity.CatalogEntity;
+import com.example.mscatalogsservice.inner.domain.CatalogEntity;
 
 public interface CatalogService {
     Iterable<CatalogEntity> getAllCatalogs();
