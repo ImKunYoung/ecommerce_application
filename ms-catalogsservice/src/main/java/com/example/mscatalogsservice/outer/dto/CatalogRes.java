@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseCatalog {
+public class CatalogRes {
     private String productId;
     private String productName;
     private Integer stock;

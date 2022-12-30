@@ -1,7 +1,7 @@
 package com.example.mscatalogsservice.outer.web.rest;
 
 import com.example.mscatalogsservice.outer.dto.CatalogDto;
-import com.example.mscatalogsservice.outer.dto.ResponseCatalog;
+import com.example.mscatalogsservice.outer.dto.CatalogRes;
 import com.example.mscatalogsservice.inner.domain.CatalogEntity;
 import com.example.mscatalogsservice.outer.mqadapter.KafkaProducerImpl;
 import com.example.mscatalogsservice.inner.service.CatalogService;
@@ -30,11 +30,11 @@ public class CatalogResource {
     
     /*@Description 상품 목록 조회*/
     @GetMapping("/catalogs")
-    public ResponseEntity<List<ResponseCatalog>> getCatalogs() {
+    public ResponseEntity<List<CatalogRes>> getCatalogs() {
         Iterable<CatalogEntity> allCatalogs = catalogService.getAllCatalogs();
 
-        List<ResponseCatalog> result = new ArrayList<>();
-        allCatalogs.forEach(v -> result.add(new ModelMapper().map(v, ResponseCatalog.class)));
+        List<CatalogRes> result = new ArrayList<>();
+        allCatalogs.forEach(v -> result.add(new ModelMapper().map(v, CatalogRes.class)));
 
 
 
