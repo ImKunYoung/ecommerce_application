@@ -1,4 +1,4 @@
-package com.example.mscatalogsservice.controller;
+package com.example.mscatalogsservice.web.rest;
 
 import com.example.mscatalogsservice.dto.CatalogDto;
 import com.example.mscatalogsservice.entity.CatalogEntity;
@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.catalog.Catalog;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class CatalogController {
+public class CatalogResource {
 
     private final KafkaProducer kafkaProducer;
 
